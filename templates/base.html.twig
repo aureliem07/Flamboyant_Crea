@@ -1,19 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title> 
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+  </head>
+  <body class="flex flex-col h-screen">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+  <header class="bg-dark-orange">
+    <nav class="lg:hidden grid grid-cols-6 p-2">
+      <div class="col-start-1 col-end-7 m-auto">
+        <img class="object-fill h-20 w-auto" src="img/logo1.png" alt="Logo Flamboyant Créa"/>
+      </div>
+      <div class="col-start-1 col-end-2 flex justify-start">
+        <img class="object-fill h-6 w-6" src="img/menu.png" alt="Menu"/>
+      </div>
+      <div class="col-start-5 col-end-6 flex justify-end">
+        <img class="object-fill h-6 w-6" src="img/panier.png" alt="Panier"/>
+      </div>
+      <div class="col-start-6 col-end-7 flex justify-end">
+       <img class="object-fill h-6 w-6" src="img/compte.png" alt="Compte"/>
+      </div>
+    </nav>
+    <nav class="lg:grid hidden px-4 pt-1">
+      <div class="grid grid-cols-4">
+        <div class="m-auto">
+        <img class="col-start-1 col-end-2 h-28 w-auto" src="/img/logo2.png" alt="Logo Flamboyant Créa"/>
+        </div>
+        <div class="col-start-2 col-end-4 m-auto">
+          <img class="" src="img/logo3.png" alt="Logo Flamboyant Créa"/>
+        </div>
+      </div>
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-row">
+          <a href="#" class="bg-light-beige text-dark-red font-display font-semibold text-2xl hover:bg-dark-red hover:text-light-beige px-5 py-1 m-2 rounded-2xl">Accueil</a>
+          <a href="#" class="bg-light-beige text-dark-red font-display font-semibold text-2xl hover:bg-dark-red hover:text-light-beige px-5 py-1 m-2 rounded-2xl">Couture</a>
+          <a href="#" class="bg-light-beige text-dark-red font-display font-semibold text-2xl hover:bg-dark-red hover:text-light-beige px-5 py-1 m-2 rounded-2xl">Peinture</a>
+          <a href="#" class="bg-light-beige text-dark-red font-display font-semibold text-2xl hover:bg-dark-red hover:text-light-beige px-5 py-1 m-2 rounded-2xl">Tricot & Crochet</a>
+        </div>
+        <div class="flex flex-row">
+          <div class="flex flex-row items-center m-2">
+            <img class="object-fill h-6 w-6 mr-1" src="img/panier.png" alt="Panier"/> Mon panier
+          </div>
+          <div class="flex flex-row items-center m-2">
+            <img class="object-fill h-6 w-6 mr-1" src="img/compte.png" alt="Compte"/> Mon compte
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow">
+    {% block body %}{% endblock %}
+  </main>
+
+  <footer class="bg-light-blue text-dark-red font-body font-semibold text-xs lg:text-sm flex flex-row justify-around bfixed p-2">
+    <div>
+      <h1 class="font-display font-bold text-lg lg:text-xl">Service client</h1>
+      <p class="">02 40 88 88 88</p>
+      <p class="">de 8h30 à 17h00 du lundi au vendredi</p>
+      <p class="">et de 9h00 à 12h00 le dimanche (sauf jours fériés)</p>
+    </div>
+    <div>
+      <p class="pt-1">Formulaire de contact</p>
+      <p class="pt-1">Mentions légales</p>
+      <p class="pt-1">Conditions Générales de Vente</p>
+      <p class="pt-1">Traitement des données personnelles</p>
+    </div>
+  </footer>
+
+  </body>
 </html>

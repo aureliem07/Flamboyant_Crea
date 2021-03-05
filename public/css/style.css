@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Montserrat&display=swap');
+:root{
+  --rouge: #551700;
+  --orange-fonce: #F28705;
+  --orange-clair:#F2B705;
+  --bleu: #32A6A6;
+  --eczar: 'Eczar', sans-serif;
+  --montserrat:'Montserrat', sans-serif;
+}
+html {
+  min-height: 100%;
+}
+body {
+  background-color: #FFFDF5;
+}
+
+/*-------------  HEADER  -------------*/
+.siteHeader{
+  background: var(--orange-fonce);
+  padding: 40px;
+}
+.navBarDesktop{
+  visibility: hidden;
+	display: none;
+}
+.navBarMobile{
+  display: flex;
+  justify-content: space-between;
+}
+.logo1{
+  display: block;
+  padding-bottom: 40px;
+  width: 550px;
+  height: auto;
+}
+
+.icone1, .icone2, .icone3{
+  display: block;
+  align-self: flex-end;
+  width: 80px;
+  height: 80px;
+}
+
+/*-------------  MAIN  -------------*/
+.siteContent{
+  flex: 1;
+}
+
+/*-------------  FOOTER  -------------*/
+.siteFooter{
+  height: 280px;
+  background: var(--bleu);
+  color: var(--rouge);
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px;
+}
+.serviceClient, .conditions{
+  font-family: var(--montserrat);
+  font-weight: bold;
+}
+.siteFooter p{
+  margin: 0;
+}
+.serviceClient h1{
+  font-family: var(--eczar);
+  margin: 0;
+  line-height: 1em;
+}
+.conditions p{
+  padding: 8px 0;
+}
+
+/*---------- Styles pour les écrans type tablette/desktop ----------*/
+@media screen and (min-width: 780px) {
+  
+}

@@ -1,0 +1,29 @@
+/*///////////////////  MAIN  ///////////////////*/
+.siteContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 40px;
+}
+.siteContent p{
+  font-family: var(--montserrat);
+  line-height: 1em;
+}
+.siteContent h1{
+  margin: 40px auto;
+  font-family: var(--eczar);
+  font-size: 90px;
+  color:var(--rouge);
+  border-radius: 15px;  
+  width: 600px;
+  background-color: var(--orange-clair);
+}
+.orangeColor{
+  color: var(--orange-fonce);
+}
+.blueColor{
+  color: var(--bleu);
+  font-size: 30px;
+  font-weight: bold;
+}
