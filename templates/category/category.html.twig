@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+  {{ categorie.nom }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div class="grid lg:grid-cols-3 lg:my-1 lg:px-1">
+
+{% for produit in produits %}
+<article class="m-8 overflow-hidden rounded-lg shadow-lg">
+  
+  <a href="{{ path('product', {'id': produit.id}) }}">
+    <img alt="Placeholder" class="object-cover h-48 w-full" src="{{ produit.imageUrl }}">
+  </a>
+  
+  <div class="h-24 font-body text-base">
+    <div class="grid grid-cols-3 gap-1 font-bold leading-tight p-2 lg:pt-4 lg:px-4">
+      <h1 class="col-start-1 col-end-3 leading-none text-dark-orange">
+        <a class="no-underline hover:underline" href="{{ path('product', {'id': produit.id}) }}">
+          {{ produit.nom }}
+        </a>
+      </h1>
+      {% if produit.stock > 5 %}
+        <p class="text-green-700 lg:ml-2">En stock</p>
+      {% elseif produit.stock > 0 %}
+        <p class="text-red-600 lg:ml-2">{{ produit.stock }} en stock</p>
+      {% else %}
+        <p class="text-red-600 lg:ml-2">En rupture de stock</p>
+      {% endif %}
+    </div>
+    <div class="grid grid-cols-3 px-2 lg:px-4">
+      <p class="col-start-1 col-end-3 text-grey-darker">{{ produit.prixUnitaire }} €</p>
+      <button type="button" href="{{ path('cart_add', {'id': produit.id })}}"class="lg:ml-2 focus:outline-none h-8 w-20 text-dark-red font-bold text-base rounded-md bg-gradient-to-r from-dark-blue to-light-blue transform hover:scale-110">Panier</button>
+    </div>
+  </div>
+
+</article>
+{% endfor %}
+
+</div>
+{% endblock %}

@@ -6,7 +6,8 @@ module.exports = {
         'dark-orange': '#F28705',
         'light-orange': '#F2B705',
         'dark-red': '#551700',
-        'light-blue': '#32A6A6',
+        'dark-blue': '#32A6A6',
+        'light-blue': '#99E9F2',
         'light-beige': '#FFFDF5'
       }
     },
