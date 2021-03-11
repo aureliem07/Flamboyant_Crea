@@ -24,7 +24,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
 
@@ -33,6 +33,8 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    public $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,7 +52,7 @@ class User implements UserInterface
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $codePostal;
 
@@ -60,7 +62,7 @@ class User implements UserInterface
     private $ville;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $tel;
 
