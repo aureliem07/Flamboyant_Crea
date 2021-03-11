@@ -20,6 +20,7 @@ final class Version20210301192445 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE produit DROP prix_unitaire');
         $this->addSql('ALTER TABLE produit ADD prix_unitaire NUMERIC(6, 2) NOT NULL');
     }
 
