@@ -36,7 +36,13 @@
     </div>
     <div class="grid grid-cols-3 px-2 lg:px-4">
       <p class="col-start-1 col-end-3 text-grey-darker">{{ produit.prixUnitaire }} €</p>
-      <button type="button" href="{{ path('cart_add', {'id': produit.id })}}"class="lg:ml-2 focus:outline-none h-8 w-20 text-dark-red font-bold text-base rounded-md bg-gradient-to-r from-dark-blue to-light-blue transform hover:scale-110">Panier</button>
+      <button 
+        type="button"
+        href="{{ path('cart_add', {'id': produit.id })}}"
+        class="lg:ml-2 focus:outline-none h-8 w-20 text-dark-red font-bold text-base rounded-md bg-gradient-to-r bg-light-blue hover:bg-blue-400 transform hover:scale-110"
+      >
+        Panier
+      </button>
     </div>
   </div>
 
