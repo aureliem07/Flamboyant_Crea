@@ -16,41 +16,42 @@
       Créer un compte
     </div>
     <div class="mb-4">
-      {{ form_label(form.email, 'E-mail', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.email, 'E-mail*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.email, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.nom, 'Nom', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.nom, 'Nom*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.nom, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.prenom, 'Prénom*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.prenom, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.adresse, 'Adresse*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.adresse, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.codePostal, 'Code Postal', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.codePostal, 'Code Postal*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.codePostal, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.ville, 'Ville', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.ville, 'Ville*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.ville, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.tel, 'Téléphone', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.tel, 'Téléphone*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.tel, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.password, 'Mot de passe', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.password, 'Mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.password, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
     <div class="mb-4">
-      {{ form_label(form.confirmPassword, 'Confirmer le mot de passe', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
+      {{ form_label(form.confirmPassword, 'Confirmer le mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm font-normal mb-2'}}) }}
       {{ form_widget(form.confirmPassword, {'attr': {'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
     </div>
+    <p class="text-gray-600 text-xs mb-2 text-center">*Champs obligatoires</p>
     <div class="flex items-center justify-between">
       <button
         class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"

@@ -7,14 +7,64 @@
 {% endblock %}
 
 {% block body %}
-<div class="text-center p-4">
-  <div class="py-3">
-    <h4 class="rounded-lg bg-light-orange text-dark-red font-display font-bold text-3xl lg:text-4xl py-2 px-10 lg:px-40 align-middle inline-block">Bienvenue</h4>
+
+<div class="flex items-center justify-center font-body m-8">
+  <div class="w-full max-w-md bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">
+    {# <form action="{{ path('contact') }}" method="post" class=""> #}
+      <div class="text-dark-orange text-xl font-bold flex justify-center border-b-2 py-2 mb-4 text-center">
+        Contactez-nous
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm mb-2"
+        >
+          Nom et Prénom*
+        </label>
+        <input
+          placeholder="Nom Prénom"
+          type="text" 
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm mb-2"
+        >
+          Adresse e-mail*
+        </label>
+        <input 
+          placeholder="Adresse e-mail"
+          type="email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm mb-2"
+        >
+          Formulaire*
+        </label>
+        {# <input 
+          placeholder="Votre message"
+          type="email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        /> #}
+        <textarea name="story"
+          placeholder="Votre message"
+          class="resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          rows="5"
+          required="required"></textarea>
+      </div>
+      <p class="text-gray-600 text-xs mb-2 text-center">*Champs obligatoires</p>
+      <div class="flex items-center justify-between">        
+        <button
+          class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"
+          type="submit"
+        >
+          Envoyer
+        </button>
+      </div>
+    {# </form> #}
   </div>
-  <p class="pb-1 lg:text-xl">Bienvenue sur notre site d’achat de fournitures pour les <span class="text-dark-orange">loisirs créatifs</span>.</p>
-  <p class="pb-1 lg:text-xl">Vous trouverez ici un large choix de produits <span class="text-dark-orange">écoresponsables</span> accessibles pour toutes les bourses.</p>
-  <p class="pb-1 lg:text-xl">Les tissus, les fils, et la peinture sont <span class="text-dark-orange">certifiés bio</span>.</p>
-  <p class="pb-1 lg:text-xl">Vous pouvez également retrouver nos articles en magasin à l’adresse suivante :</p>
-  <p class="text-dark-blue font-bold pt-1 lg:pt-3 lg:text-xl">50 Boulevard Einstein</br>44200 Nantes</p>
-</div> 
+</div>
 {% endblock %}
