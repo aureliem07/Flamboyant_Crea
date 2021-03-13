@@ -15,30 +15,134 @@
 
   <header class="bg-dark-orange">
   
-    <nav class="grid grid-cols-8 p-2 lg:pb-0 text-dark-red">
-      <div class="col-start-1 col-end-9 m-auto lg:col-end-3  lg:pb-2">
+    <nav class="grid grid-cols-8 auto-rows-min p-2 lg:flex lg:justify-around lg:pb-0 text-dark-red">
+      
+      <div class="col-start-1 col-end-9 m-auto lg:pb-2">
         <img class="h-20 w-auto" src="/img/logo1.png" alt="Logo Flamboyant Créa"/>
       </div>
-      <input id="navbar_trigger" class="h-6 w-6 col-start-1 col-end-2 lg:hidden" type="image" src="/img/menu.png" alt="menu">
-      </input>
-      <div id="navbar" class="hidden col-start-2 col-end-7 lg:col-start-3 lg:col-end-7 lg:flex flex-col lg:flex-row lg:items-end font-display font-semibold text-xl lg:text-2xl">
-        <a href="{{ path('index') }}" class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">Accueil</a>
-        <a href="{{ path('category', {'category_name': 'couture'}) }}" class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">Couture</a>
-        <a href="{{ path('category', {'category_name': 'peinture'}) }}" class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">Peinture</a>
-        <a href="{{ path('category', {'category_name': 'tricot'}) }}" class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">Tricot & Broderie</a>
+
+      <div class="col-start-1 m-auto">
+        <input
+          id="navbar_menu"
+          class="h-6 w-6 lg:hidden"
+          type="image"
+          src="/img/menu.png"
+          alt="menu"
+        />
       </div>
-      <div class="col-start-7 lg:font-display lg:font-semibold lg:self-end lg:pb-3 lg:text-lg lg:hover:text-light-beige">
-        <a href="{# path('cart') #}" class="lg:flex lg:flex-row">
-          <img class="h-6 w-6" src="/img/panier.png" alt="Panier"/>
-          <p class="hidden lg:pl-2 lg:block">Mon panier</p>
+
+      <div
+        id="navbar_menu_list"
+        class="hidden col-start-1 col-end-5 lg:flex flex-col lg:flex-row lg:items-end font-display font-semibold text-xl lg:text-2xl"
+      >
+        <a
+          href="{{ path('index') }}"
+          class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">
+            Accueil
+        </a>
+        <a
+          href="{{ path('category', {'category_name': 'couture'}) }}"
+          class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">
+            Couture
+        </a>
+        <a
+          href="{{ path('category', {'category_name': 'peinture'}) }}"
+          class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">
+            Peinture
+        </a>
+        <a
+          href="{{ path('category', {'category_name': 'tricot'}) }}"
+          class="hover:text-light-beige lg:p-3 lg:hover:bg-dark-red lg:hover:text-light-beige">
+            Tricot & Broderie
         </a>
       </div>
-      <div class="lg:font-display lg:font-semibold lg:self-end lg:pb-3 lg:text-lg lg:hover:text-light-beige">
-        <a href="{{path('security_login') }}" class="lg:flex lg:flex-row">
-          <img class="h-6 w-6" src="/img/compte.png" alt="Compte"/>
-          <p class="hidden lg:pl-2 lg:block">Mon compte</p>
-        </a>
-      </div>  
+
+      <div class="col-start-7 m-auto">
+        <input
+          id="navbar_compte"
+          class="h-6 w-6 lg:hidden"
+          type="image"
+          src="/img/compte.png"
+          alt="Compte"
+        />
+      </div>
+      <div 
+        id="navbar_compte_list"
+        class="hidden col-start-5 col-end-8 items-end font-display font-semibold text-xl lg:flex"
+      >
+        <img
+          class="hidden h-6 w-6 lg:flex mb-4 mr-3"
+          src="/img/compte.png"
+          alt="Compte"
+        />
+        {% if not app.user %}
+          <a
+            href="{{path('security_login') }}"
+            class="hover:text-light-beige lg:p-3 lg:hover:text-light-beige"
+          >
+            Se connecter
+          </a>
+        {% else %}
+          <div class="flex-row lg:flex lg:flex-col">
+            <a
+              href="#"
+              class="hover:text-light-beige lg:hover:text-light-beige"
+            >
+              Mon compte
+            </a>
+            <a
+              href="{{path('security_logout') }}"
+              class="hover:text-light-beige lg:hover:text-light-beige"
+            >
+              Se déconnecter
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="col-start-8 m-auto">
+        <input
+          id="navbar_panier"
+          class="h-6 w-6 lg:hidden"
+          type="image"
+          src="/img/panier.png"
+          alt="Panier"
+        />
+      </div>
+      <div 
+        id="navbar_panier_list"
+        class="hidden col-start-6 col-end-9 items-end font-display font-semibold text-xl lg:flex"
+      >
+        <img
+          class="hidden h-6 w-6 lg:flex mb-4 mr-3"
+          src="/img/panier.png"
+          alt="Panier"
+        />
+        {# {% if not app.user %}
+          <a
+            href="{{path('security_login') }}"
+            class="hover:text-light-beige lg:p-3 lg:hover:text-light-beige"
+          >
+            Se connecter
+          </a>
+        {% else %}
+          <div class="flex-row lg:flex lg:flex-col">
+            <a
+              href="#"
+              class="hover:text-light-beige lg:hover:text-light-beige"
+            >
+              Mon compte
+            </a>
+            <a
+              href="{{path('security_logout') }}"
+              class="hover:text-light-beige lg:hover:text-light-beige"
+            >
+              Se déconnecter
+            </a>
+          </div>
+        {% endif %} #}
+      </div>
+       
     </nav>
 
   </header>
@@ -57,11 +161,11 @@
     </div>
 
     <div class="col-start-3 col-end-6 flex flex-col lg:grid lg:grid-cols-2 lg:pt-2">
-      <div class="lg:grid lg:grid-rows-2">
-        <a href="#" class="pt-1 no-underline hover:underline">Formulaire de contact</a>
+      <div class="grid grid-rows-2">
+        <a href="{{path('contact') }}" class="pt-1 no-underline hover:underline">Contactez-nous</a>
         <a href="#" class="pt-1 no-underline hover:underline">Mentions légales</a>
       </div>
-      <div class="lg:grid lg:grid-rows-2">
+      <div class="grid grid-rows-2">
         <a href="#" class="pt-1 no-underline hover:underline">Conditions Générales de Vente</a>
         <a href="#" class="pt-1 no-underline hover:underline">Données personnelles</a>
       </div>
