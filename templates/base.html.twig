@@ -85,7 +85,7 @@
         {% else %}
           <div class="flex-row lg:flex lg:flex-col">
             <a
-              href="#"
+              href="{{path('security_account') }}"
               class="hover:text-light-beige lg:hover:text-light-beige"
             >
               Mon compte
@@ -153,14 +153,14 @@
 
   <footer class="grid grid-cols-5 leading-loose bg-dark-blue text-dark-red font-body font-semibold text-xs lg:text-sm bfixed p-2 lg:pl-10">
     
-    <div class="col-start-1 col-end-3">
-      <h1 class="font-display font-bold text-lg lg:text-xl">Service client</h1>
+    <div class="col-start-1 col-end-3 lg:text-base">
+      <h1 class="font-display font-bold text-lg lg:text-2xl">Service client</h1>
       <p>02 40 88 88 88</p>
       <p>de 9h00 à 17h00</p>
       <p>du lundi au samedi</p>
     </div>
 
-    <div class="col-start-3 col-end-6 flex flex-col lg:grid lg:grid-cols-2 lg:pt-2">
+    <div class="col-start-3 col-end-6 flex flex-col lg:grid lg:grid-cols-2 lg:pt-2 lg:text-base">
       <div class="grid grid-rows-2">
         <a href="{{path('contact') }}" class="pt-1 no-underline hover:underline">Contactez-nous</a>
         <a href="#" class="pt-1 no-underline hover:underline">Mentions légales</a>

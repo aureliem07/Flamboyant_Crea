@@ -52,4 +52,11 @@ class SecurityController extends AbstractController
      * @Route("/déconnexion", name="security_logout")
      */
     public function logout(){}
+
+    /**
+     * @Route("/compte", name="security_account")
+     */
+    public function account(){
+        return $this->render('security/account.html.twig');
+    }
 }
