@@ -29,13 +29,14 @@
     </div>
     <div class="grid grid-cols-3 px-2 lg:pl-4 lg:pt-10 lg:gap-14">
       <p class="col-start-1 col-end-3 text-grey-darker lg:text-xl">{{ produit.prixUnitaire }} €</p>
-      <button
-        type="button"
-        href="{{ path('cart_add', {'id': produit.id })}}"
-        class="focus:outline-none h-8 w-20 lg:h-12 lg:w-28 text-dark-red font-bold text-base rounded-md bg-gradient-to-r bg-light-blue hover:bg-blue-400 transform hover:scale-110 lg:text-xl"
-      >         
-        Panier
-      </button>
+      <a href = "{{ path('cart_add' , {'id' : produit.id}) }}">
+        <input
+          type="submit"
+          class="focus:outline-none h-8 w-20 lg:h-12 lg:w-28 text-dark-red font-bold text-base rounded-md bg-gradient-to-r bg-light-blue hover:bg-blue-400 transform hover:scale-110 lg:text-xl"
+          value="Panier"
+        > 
+        </input>
+      </a>
     </div>
   </div>
 </article>

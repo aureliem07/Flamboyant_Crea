@@ -1,24 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
+{% block title %}Panier{% endblock %}
 
 {% block stylesheets %}
   {{ parent() }}
 {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Utilisateur/Documents/0-Certification/FlamboyantCrea/src/Controller/CartController.php'|file_link(0) }}">src/Controller/CartController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Utilisateur/Documents/0-Certification/FlamboyantCrea/templates/cart/index.html.twig'|file_link(0) }}">templates/cart/index.html.twig</a></code></li>
-    </ul>
+<div class="flex items-center justify-center font-body m-8">
+  <div class="w-full max-w-md lg:max-w-3xl bg-white shadow-lg rounded px-6 lg:px-12 pt-6 pb-8 mb-4">
+    <div class="text-dark-orange text-xl font-bold flex justify-center py-2 mb-4 lg:mb-8 text-center">
+        Mon panier
+    </div>
+      
+    {% if items | length > 0 %}
+      <table class="w-full">
+        <thead class="border-b-2 text-right">
+          <tr>
+            <th></th>
+            <th class="text-left">Produit</th>
+            <th>Prix</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="border-b-2 text-right">
+          {% for item in items %}
+            <tr class="leading-10">
+              <td>{{ item.quantity }} x</td>
+              <td class="text-left">{{ item.product.nom }}</td>
+              <td>{{ item.product.prixUnitaire }} €</td>
+              <td>{{ item.product.prixUnitaire * item.quantity }} €</td>
+              <td class="">
+                <a href="{{ path('cart_remove', {'id':item.product.id}) }}">
+                  <img src="/img/dustbin.png" class="h-5 w-5 float-right" alt="Corbeille"/>
+                </a>    
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot class="text-right">
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Total :</td>
+            <td> {{ total }} €</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    {% else %}
+      <p>Le panier est vide !</p>
+    {% endif %}      
+    <div class="flex items-center justify-between">
+      <button
+        class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"
+        type="submit"
+      >
+        Valider le panier
+      </button>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

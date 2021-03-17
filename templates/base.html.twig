@@ -60,7 +60,7 @@
       <div class="col-start-7 m-auto">
         <input
           id="navbar_compte"
-          class="h-6 w-6 lg:hidden"
+          class="h-6 w-6 mr-4 lg:hidden"
           type="image"
           src="/img/compte.png"
           alt="Compte"
@@ -68,10 +68,10 @@
       </div>
       <div 
         id="navbar_compte_list"
-        class="hidden col-start-5 col-end-8 items-end font-display font-semibold text-xl lg:flex"
+        class="hidden lg:flex col-start-5 col-end-8 items-end font-display font-semibold text-xl"
       >
         <img
-          class="hidden h-6 w-6 lg:flex mb-4 mr-3"
+          class="hidden lg:flex h-6 w-6 mb-4 mr-3"
           src="/img/compte.png"
           alt="Compte"
         />
@@ -100,47 +100,16 @@
         {% endif %}
       </div>
       
-      <div class="col-start-8 m-auto">
-        <input
-          id="navbar_panier"
-          class="h-6 w-6 lg:hidden"
-          type="image"
-          src="/img/panier.png"
-          alt="Panier"
-        />
-      </div>
-      <div 
-        id="navbar_panier_list"
-        class="hidden col-start-6 col-end-9 items-end font-display font-semibold text-xl lg:flex"
-      >
-        <img
-          class="hidden h-6 w-6 lg:flex mb-4 mr-3"
-          src="/img/panier.png"
-          alt="Panier"
-        />
-        {# {% if not app.user %}
-          <a
-            href="{{path('security_login') }}"
-            class="hover:text-light-beige lg:p-3 lg:hover:text-light-beige"
-          >
-            Se connecter
-          </a>
-        {% else %}
-          <div class="flex-row lg:flex lg:flex-col">
-            <a
-              href="#"
-              class="hover:text-light-beige lg:hover:text-light-beige"
-            >
-              Mon compte
-            </a>
-            <a
-              href="{{path('security_logout') }}"
-              class="hover:text-light-beige lg:hover:text-light-beige"
-            >
-              Se déconnecter
-            </a>
-          </div>
-        {% endif %} #}
+      <div class="col-start-8">
+        <a href="{{path('cart_index') }}" class="lg:items-end">
+          <input
+            id="navbar_panier"
+            class="h-6 w-6"
+            type="image"
+            src="/img/panier.png"
+            alt="Panier"
+          />
+        </a>
       </div>
        
     </nav>
