@@ -15,9 +15,9 @@
     </div>
       
     {% if items | length > 0 %}
-      <table class="w-full">
-        <thead class="border-b-2 text-right">
-          <tr>
+      <table class="w-full font-body text-base">
+        <thead class="border-b-2 text-right text-lg text-dark-blue">
+          <tr class="h-10">
             <th></th>
             <th class="text-left">Produit</th>
             <th>Prix</th>
@@ -41,7 +41,7 @@
           {% endfor %}
         </tbody>
         <tfoot class="text-right">
-          <tr>
+          <tr class="h-12 text-dark-orange font-bold text-lg">
             <td></td>
             <td></td>
             <td>Total :</td>
@@ -53,7 +53,7 @@
     {% else %}
       <p>Le panier est vide !</p>
     {% endif %}      
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between my-6">
       <button
         class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"
         type="submit"

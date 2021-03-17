@@ -71,7 +71,7 @@
         class="hidden lg:flex col-start-5 col-end-8 items-end font-display font-semibold text-xl"
       >
         <img
-          class="hidden lg:flex h-6 w-6 mb-4 mr-3"
+          class="hidden lg:flex h-6 w-6 mb-4"
           src="/img/compte.png"
           alt="Compte"
         />
@@ -100,16 +100,21 @@
         {% endif %}
       </div>
       
-      <div class="col-start-8">
-        <a href="{{path('cart_index') }}" class="lg:items-end">
-          <input
-            id="navbar_panier"
-            class="h-6 w-6"
-            type="image"
+      <div class="col-start-8 lg:flex lg:items-end lg:ml-8">
+        <a href="{{path('cart_index') }}" id="navbar_panier">
+        <img       
+            class="h-6 w-6  lg:mb-4"
             src="/img/panier.png"
             alt="Panier"
           />
         </a>
+        <a
+          href="{{path('cart_index') }}"
+          class="hidden lg:flex p-3 font-display font-semibold text-xl hover:text-light-beige lg:hover:text-light-beige"
+        >
+          Mon panier
+        </a>
+
       </div>
        
     </nav>
