@@ -25,6 +25,12 @@ class Order
      */
     private $produit;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->produit = new ArrayCollection();
@@ -55,6 +61,18 @@ class Order
     public function removeProduit(Produit $produit): self
     {
         $this->produit->removeElement($produit);
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
