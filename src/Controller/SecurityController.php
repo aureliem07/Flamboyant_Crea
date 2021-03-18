@@ -72,6 +72,14 @@ class SecurityController extends AbstractController
   }
 
   /**
+   * @Route("/donnees", name="security_personalData")
+   */
+  public function personalData()
+  {
+    return $this->render('security/personalData.html.twig');
+  }
+
+  /**
    * @Route("/compte/supprimer", name="security_remove")
    */
   public function remove(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, SessionInterface $session)
