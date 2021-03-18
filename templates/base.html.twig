@@ -122,6 +122,15 @@
   </header>
 
   <main class="flex-grow">
+
+    {% for flash in app.flashes('success') %}
+      <div class="bg-green-500 font-body font-bold text-center">{{ flash }}</div>
+    {% endfor %}
+
+    {% for flash in app.flashes('error') %}
+      <div class="bg-red-500 font-body font-bold text-center">{{ flash }}</div>
+    {% endfor %}
+
     {% block body %}{% endblock %}
   </main>
 

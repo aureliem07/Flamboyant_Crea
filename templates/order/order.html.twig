@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+  Commandes
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% for order in orders %}
+        <div>
+            {% for orderProduit in order.hasProduits %}
+            <div>{{ orderProduit.quantite }}</div>
+            <div>{{ orderProduit.produit.nom }}</div>
+            <div>{{ orderProduit.produit.prixUnitaire }}</div>
+
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

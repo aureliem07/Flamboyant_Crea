@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Order;
+use App\Entity\OrderHasProduits;
+use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,22 +15,61 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class OrderController extends AbstractController
 {
-    /**
-     * @Route("/commande/creation", name="order_create")
-     */
-    public function create(SessionInterface $session, Security $security, EntityManagerInterface $entityManager)
-    {
-        $panier = $session->get('panier', []);
-        dd($panier);
+  /**
+   * @Route("/commande/creation", name="order_create")
+   */
+  public function create(SessionInterface $session, Security $security, EntityManagerInterface $entityManager, ProduitRepository $produitRepository)
+  {
+    $panier = $session->get('panier', []);
+    $order = new Order();
+    $user = $security->getUser();
 
-        $order = new Order();
-        
-        $order->setUser($security->getUser());
-
-
-
-
-
-
+    if (!empty($user)) {
+      $order->setUser($user);
     }
+
+    foreach ($panier as $produitId => $produitQuantity) {
+      $produit = $produitRepository->find($produitId);
+
+      $orderHasProduits = new OrderHasProduits();
+      $orderHasProduits->setProduit($produit);
+      $orderHasProduits->setQuantite($produitQuantity);
+
+      $order->addHasProduit($orderHasProduits);
+    }
+
+    $entityManager->persist($order);
+    $entityManager->flush();
+    if($order->getId()){
+      $this->addFlash('success', 'Votre commande a bien été enregistrée.');
+      $session->set('panier', []);
+
+      return $this->redirectToRoute('order_history');
+    } else {
+      $this->addFlash('error', 'Votre commande n\'a pu être enregistrée.');
+
+      return $this->redirectToRoute('index');
+    }
+  }
+
+  /**
+   * @Route("/commandes/historique", name="order_history")
+   */
+  public function getByCurrentUser(Security $security): Response
+  {
+    $user = $security->getUser();
+    $orders = [];
+
+    if($user){
+      $bdd_user = $this->getDoctrine()
+        ->getRepository(User::class)
+        ->find($user->getId());
+
+      $orders = $bdd_user->getOrders();
+    }
+
+    return $this->render('order/order.html.twig', [
+      'orders' => $orders,
+    ]);
+  }
 }

@@ -55,14 +55,14 @@ class Produit
     private $prixUnitaire;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, mappedBy="produit")
+     * @ORM\OneToMany(targetEntity=OrderHasProduits::class, mappedBy="produit")
      */
-    private $orders;
+    private $hasOrder;
 
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
-        $this->orders = new ArrayCollection();
+        $this->hasOrder = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -167,27 +167,30 @@ class Produit
     }
 
     /**
-     * @return Collection|Order[]
+     * @return Collection|OrderHasProduits[]
      */
-    public function getOrders(): Collection
+    public function getHasOrder(): Collection
     {
-        return $this->orders;
+        return $this->hasOrder;
     }
 
-    public function addOrder(Order $order): self
+    public function addHasOrder(OrderHasProduits $hasOrder): self
     {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->addProduit($this);
+        if (!$this->hasOrder->contains($hasOrder)) {
+            $this->hasOrder[] = $hasOrder;
+            $hasOrder->setProduit($this);
         }
 
         return $this;
     }
 
-    public function removeOrder(Order $order): self
+    public function removeHasOrder(OrderHasProduits $hasOrder): self
     {
-        if ($this->orders->removeElement($order)) {
-            $order->removeProduit($this);
+        if ($this->hasOrder->removeElement($hasOrder)) {
+            // set the owning side to null (unless already changed)
+            if ($hasOrder->getProduit() === $this) {
+                $hasOrder->setProduit(null);
+            }
         }
 
         return $this;

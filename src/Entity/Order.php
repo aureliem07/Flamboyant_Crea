@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\OrderRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
  * @ORM\Table(name="`order`")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Order
 {
@@ -21,48 +23,29 @@ class Order
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Produit::class, inversedBy="orders")
-     */
-    private $produit;
-
-    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderHasProduits::class, mappedBy="commande", cascade={"persist"})
+     */
+    private $hasProduits;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
     public function __construct()
     {
-        $this->produit = new ArrayCollection();
+        $this->hasProduits = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection|Produit[]
-     */
-    public function getProduit(): Collection
-    {
-        return $this->produit;
-    }
-
-    public function addProduit(Produit $produit): self
-    {
-        if (!$this->produit->contains($produit)) {
-            $this->produit[] = $produit;
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): self
-    {
-        $this->produit->removeElement($produit);
-
-        return $this;
     }
 
     public function getUser(): ?User
@@ -76,4 +59,48 @@ class Order
 
         return $this;
     }
+
+    /**
+     * @return Collection|OrderHasProduits[]
+     */
+    public function getHasProduits(): Collection
+    {
+        return $this->hasProduits;
+    }
+
+    public function addHasProduit(OrderHasProduits $hasProduit): self
+    {
+        if (!$this->hasProduits->contains($hasProduit)) {
+            $this->hasProduits[] = $hasProduit;
+            $hasProduit->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHasProduit(OrderHasProduits $hasProduit): self
+    {
+        if ($this->hasProduits->removeElement($hasProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($hasProduit->getCommande() === $this) {
+                $hasProduit->setCommande(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+    
+    /**
+     * @ORM\PrePersist
+    */ 
+    public function setCreatedAt()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
+
 }
