@@ -50,19 +50,19 @@
           </tr>
         </tfoot>
       </table>
+      <div class="flex justify-center my-6">
+        <a href="{{ path('order_create') }}">
+          <button
+          class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"
+          type="submit"
+          >
+          Valider le panier
+          </button>
+        </a>
+      </div>
     {% else %}
-      <p>Le panier est vide !</p>
-    {% endif %}      
-    <div class="flex justify-center my-6">
-    <a href="{{ path('order_create') }}">
-      <button
-        class="m-auto px-4 py-2 rounded text-dark-red font-bold inline-block shadow-lg bg-light-blue hover:bg-blue-400 transform hover:scale-110"
-        type="submit"
-      >
-        Valider le panier
-      </button>
-    </a>
-    </div>
+      <p class="text-center font-body">Le panier est vide !</p>
+    {% endif %}
   </div>
 </div>
 
