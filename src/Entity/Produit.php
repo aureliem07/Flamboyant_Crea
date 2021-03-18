@@ -54,9 +54,15 @@ class Produit
      */
     private $prixUnitaire;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Order::class, mappedBy="produit")
+     */
+    private $orders;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +162,33 @@ class Produit
     public function setPrixUnitaire(string $prixUnitaire): self
     {
         $this->prixUnitaire = $prixUnitaire;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->addProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            $order->removeProduit($this);
+        }
 
         return $this;
     }
