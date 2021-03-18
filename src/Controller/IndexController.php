@@ -20,6 +20,15 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @Route("/mentionslegales", name="mentions")
+     */
+    public function mentions(): Response
+    {
+        return $this->render('index/mentions.html.twig', [
+        ]);
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
     public function contact(Request $request, \Swift_Mailer $mailer)

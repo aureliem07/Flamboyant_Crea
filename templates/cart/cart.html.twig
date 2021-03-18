@@ -15,19 +15,19 @@
     </div>
       
     {% if items | length > 0 %}
-      <table class="w-full font-body text-base">
-        <thead class="border-b-2 text-right text-lg text-dark-blue">
-          <tr class="h-10">
+      <table class="w-full font-body lg:text-base">
+        <thead class="border-b-2 text-right text-base text-dark-blue">
+          <tr class="lg:h-10">
             <th></th>
             <th class="text-left">Produit</th>
-            <th>Prix</th>
-            <th>Total</th>
+            <th class="w-16">Prix</th>
+            <th class="w-16">Total</th>
             <th></th>
           </tr>
         </thead>
-        <tbody class="border-b-2 text-right">
+        <tbody class="align-text-top border-b-2 text-right">
           {% for item in items %}
-            <tr class="leading-10">
+            <tr class="leading-tight lg:leading-10">
               <td>{{ item.quantity }} x</td>
               <td class="text-left">{{ item.product.nom }}</td>
               <td>{{ item.product.prixUnitaire }} €</td>
@@ -41,7 +41,7 @@
           {% endfor %}
         </tbody>
         <tfoot class="text-right">
-          <tr class="h-12 text-dark-orange font-bold text-lg">
+          <tr class="h-12 text-dark-orange font-bold text-base">
             <td></td>
             <td></td>
             <td>Total :</td>

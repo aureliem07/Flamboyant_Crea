@@ -9,14 +9,41 @@
 {% endblock %}
 
 {% block body %}
-    {% for order in orders %}
-        <div>
-            {% for orderProduit in order.hasProduits %}
-            <div>{{ orderProduit.quantite }}</div>
-            <div>{{ orderProduit.produit.nom }}</div>
-            <div>{{ orderProduit.produit.prixUnitaire }}</div>
 
-            {% endfor %}
-        </div>
+   
+
+    
+<div class="flex items-center justify-center font-body m-8">
+  <div class="w-full max-w-md lg:max-w-3xl bg-white shadow-lg rounded px-6 lg:px-12 pt-6 pb-8 mb-4">
+    <div class="text-dark-orange text-xl font-bold flex justify-center py-2 mb-4 lg:mb-8 text-center">
+        Mes commandes
+    </div>
+      
+    {% for order in orders %}
+    <table class="w-full font-body lg:text-base mb-10">
+    <div class="font-bold lg:mb-2 text-dark-orange">N° de commande : {{ order.id }}</div>
+      <thead class="border-b-2 text-right text-base text-dark-blue">
+        <tr class="lg:h-10">
+          <th></th>
+          <th class="text-left">Produit</th>
+          <th class="w-20">Prix</th>
+          <th class="w-20">Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      {% for orderProduit in order.hasProduits %}
+        <tbody class="align-text-top border-b-2 text-right">
+            <tr class="leading-tight lg:leading-10">
+              <td>{{ orderProduit.quantite }}</td>
+              <td class="text-left">x {{ orderProduit.produit.nom }}</td>
+              <td>{{ orderProduit.produit.prixUnitaire }} €</td>
+              <td>{{ orderProduit.produit.prixUnitaire * orderProduit.quantite }} €</td>
+            </tr>
+        </tbody>
+      {% endfor %}
+    </table>
     {% endfor %}
+
+  </div>
+</div>
 {% endblock %}
