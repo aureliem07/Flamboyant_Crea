@@ -79,26 +79,26 @@ class SecurityController extends AbstractController
     return $this->render('security/personalData.html.twig');
   }
 
-  /**
-   * @Route("/compte/supprimer", name="security_remove")
-   */
-  public function remove(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, SessionInterface $session)
-  {
-    $user = $this->getUser();
+  // /**
+  //  * @Route("/compte/supprimer", name="security_remove")
+  //  */
+  // public function remove(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, SessionInterface $session)
+  // {
+  //   $user = $this->getUser();
 
-    $entityManager->remove($user);
-    $entityManager->flush();
+  //   $entityManager->remove($user);
+  //   $entityManager->flush();
 
-    if (!$user->getId()) {
-      $tokenStorage->setToken(NULL);
-      $session->invalidate();
+  //   if (!$user->getId()) {
+  //     $tokenStorage->setToken(NULL);
+  //     $session->invalidate();
 
-      $this->addFlash('success', 'Votre compte a bien été supprimé.');
-      return $this->redirectToRoute('index');
-    } else {
-      $this->addFlash('error', 'Votre compte n\'a pas pu être supprimé.');
+  //     $this->addFlash('success', 'Votre compte a bien été supprimé.');
+  //     return $this->redirectToRoute('index');
+  //   } else {
+  //     $this->addFlash('error', 'Votre compte n\'a pas pu être supprimé.');
 
-      return $this->redirectToRoute('security_account');
-    }
-  }
+  //     return $this->redirectToRoute('security_account');
+  //   }
+  // }
 }
