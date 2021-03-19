@@ -103,4 +103,19 @@ class Order
         $this->createdAt = new DateTimeImmutable();
     }
 
+    /**
+     * @return float
+    */ 
+    public function getTotal(): float
+    {
+        $total = 0.00;
+        
+        foreach($this->getHasProduits() as $orderProduit) {
+            $totalOrderProduit = $orderProduit->getProduit()->getPrixUnitaire() * $orderProduit->getQuantite();  
+            $total += $totalOrderProduit;
+        }
+
+        return $total;
+    }
+
 }

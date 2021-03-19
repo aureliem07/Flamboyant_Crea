@@ -74,4 +74,12 @@ class OrderHasProduits
 
         return $this;
     }
+
+    /**
+     *@return float 
+    */
+    public function getTotal(): float
+    {
+        return $this->getProduit()->getPrixUnitaire() * $this->quantite;
+    }
 }

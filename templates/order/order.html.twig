@@ -36,11 +36,20 @@
             <tr class="leading-tight lg:leading-10">
               <td>{{ orderProduit.quantite }}</td>
               <td class="text-left">x {{ orderProduit.produit.nom }}</td>
-              <td>{{ orderProduit.produit.prixUnitaire }} €</td>
-              <td>{{ orderProduit.produit.prixUnitaire * orderProduit.quantite }} €</td>
+              <td>{{ orderProduit.produit.prixUnitaire|number_format(2) }} €</td>
+              <td>{{ orderProduit.getTotal|number_format(2) }} €</td>
             </tr>
         </tbody>
       {% endfor %}
+      <tfoot class="text-right">
+          <tr class="h-12 text-dark-orange font-bold text-base">
+            <td></td>
+            <td></td>
+            <td>Total :</td>
+            <td> {{ order.getTotal|number_format(2) }} €</td>
+            <td></td>
+          </tr>
+        </tfoot>
     </table>
     {% endfor %}
 
