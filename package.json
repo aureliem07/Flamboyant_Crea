@@ -21,5 +21,8 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress",
         "heroku-postbuild": "node_modules/.bin/encore production"
+    },
+    "dependencies": {
+        "emailjs-com": "^2.6.4"
     }
 }
