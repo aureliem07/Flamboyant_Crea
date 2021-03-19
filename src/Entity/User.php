@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(
  *  fields={"email"},
@@ -269,6 +270,20 @@ class User implements UserInterface
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * set userId NULL on all userOrders
+     * @ORM\PreRemove
+     */
+    public function anonymizeOrders(): self
+    {
+        foreach($this->orders as $order){
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
+            }
+        }
         return $this;
     }
 }
