@@ -18,6 +18,9 @@
     <div class="mb-4">
       {{ form_label(form.email, 'E-mail*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
       {{ form_widget(form.email, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      <div class="text-sm text-red-700">
+        {{ form_errors(form.email) }}
+      </div>
     </div>
     <div class="mb-4">
       {{ form_label(form.nom, 'Nom*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
@@ -46,10 +49,16 @@
     <div class="mb-4">
       {{ form_label(form.password, 'Mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
       {{ form_widget(form.password, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      <div class="text-sm text-red-700">
+        {{ form_errors(form.password) }}
+      </div>
     </div>
     <div class="mb-4">
       {{ form_label(form.confirmPassword, 'Confirmer le mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
       {{ form_widget(form.confirmPassword, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      <div class="text-sm text-red-700">
+        {{ form_errors(form.confirmPassword) }}
+      </div>
     </div>
     <p class="text-gray-600 text-xs mb-2 text-center">*Champs obligatoires</p>
     <div class="flex items-center justify-between">
