@@ -1,5 +1,5 @@
 <?php
-// tests/Controller/PostControllerTest.php
+
 namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
