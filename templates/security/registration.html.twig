@@ -17,45 +17,84 @@
     </div>
     <div class="mb-4">
       {{ form_label(form.email, 'E-mail*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.email, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.email, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+          'placeholder':'monmail@mail.com'
+        }
+      }) }}
       <div class="text-sm text-red-700">
         {{ form_errors(form.email) }}
       </div>
     </div>
     <div class="mb-4">
       {{ form_label(form.nom, 'Nom*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.nom, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.nom, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.prenom, 'Prénom*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.prenom, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.prenom, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.adresse, 'Adresse*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.adresse, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.adresse, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.codePostal, 'Code Postal*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.codePostal, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.codePostal, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.ville, 'Ville*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.ville, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.ville, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.tel, 'Téléphone*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.tel, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.tel, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+          'placeholder':'0600000000'
+        }
+      }) }}
     </div>
     <div class="mb-4">
       {{ form_label(form.password, 'Mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.password, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.password, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+          'placeholder':'8 caractères minimum'
+        }
+      }) }}
       <div class="text-sm text-red-700">
         {{ form_errors(form.password) }}
       </div>
     </div>
     <div class="mb-4">
       {{ form_label(form.confirmPassword, 'Confirmer le mot de passe*', {'label_attr': {'class':'block text-gray-700 text-sm lg:text-base font-normal mb-2'}}) }}
-      {{ form_widget(form.confirmPassword, {'attr': {'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+      {{ form_widget(form.confirmPassword, {
+        'attr': {
+          'class':'shadow appearance-none border border-light-orange rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        }
+      }) }}
       <div class="text-sm text-red-700">
         {{ form_errors(form.confirmPassword) }}
       </div>
