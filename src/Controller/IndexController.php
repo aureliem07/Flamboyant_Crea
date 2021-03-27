@@ -20,7 +20,16 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/mentionslegales", name="mentions")
+     * @Route("/contact", name="contact")
+     */
+    public function contact(): Response
+    {   
+        return $this->render('index/contact.html.twig', [
+        ]);
+    }
+
+     /**
+     * @Route("/mentions_legales", name="mentions")
      */
     public function mentions(): Response
     {
@@ -28,12 +37,21 @@ class IndexController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/contact", name="contact")
+     /**
+     * @Route("/donnees_personnelles", name="donnees")
      */
-    public function contact(): Response
-    {   
-        return $this->render('index/contact.html.twig', [
+    public function donnees(): Response
+    {
+        return $this->render('index/donnees.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/conditions_generales_ventes", name="conditions")
+     */
+    public function conditions(): Response
+    {
+        return $this->render('index/conditions.html.twig', [
         ]);
     }
 }
