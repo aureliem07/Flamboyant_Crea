@@ -3,7 +3,6 @@
 namespace App\Tests\Entity;
 
 use App\Entity\Produit;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ProduitEntityTest extends KernelTestCase
